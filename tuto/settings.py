@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -27,17 +26,25 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+INSTALLED_APPS = [  # Applications activated in Django instance
+    'polls.apps.PollsConfig',  # Adding the new, home-made application
+    # Once added > python manage.py makemigrations polls
+    # New changes ==> migrations
+    # > python manage.py sqlmigrate polls 0001      to get the generated SQL
+    # > python manage.py check      to make sure ...
+    # ... when ready > python manage.py migrate
+
+    'django.contrib.admin',  # Admin site
+    'django.contrib.auth',  # Authentication mechanism
+    'django.contrib.contenttypes',  # Framework for content types
+    'django.contrib.sessions',  # Session framework
+    'django.contrib.messages',  # Messaging framework
+    'django.contrib.staticfiles',  # Framework for managing static files
 ]
+# Allow the app to run > python manage.py migrate
+# The cmd loops over the installed apps, and migrates the DB according to the DB settings
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'tuto.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -79,7 +85,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -99,20 +104,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Paris'  # was: 'UTC'
 
 USE_I18N = True
 
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
