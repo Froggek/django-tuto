@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+# Add namespace tu URLconfs 
+app_name = 'polls' 
 urlpatterns = [
     # route: URL pattern; first match is picked
     # view: when a pattern is matched, a VIEW function is called
@@ -12,6 +14,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     # /polls/5/
     path('<int:question_id>/', views.detail, name='detail'),
+    # One can change the structure of the URL, without breaking the links (loosely-coupling)
+    # path('specifics/<int:question_id>/', views.detail, name='detail'),  
     # /polls/5/results/
     path('<int:question_id>/results/', views.results, name='results'),
     # /polls/5/vote/

@@ -56,11 +56,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tuto.urls'  # URLconfs 
+ROOT_URLCONF = 'tuto.urls'  # URLconfs
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # The template loader will look for a "templates" subdir in each INSTALLED_APPS
+        # E.g.: <app>/templates/<app>/*.html templates
+        # can be referred as <app>[= namespace]/*.html
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',  # DjangoTemplates back-end
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
