@@ -47,8 +47,6 @@ def detail(request, question_id):
     # question = get_object_or_404(Question, pk=question_id)
     # return render(request, 'polls/detail.djt', {'question': q})
 
-    
-
 
 def results(request, question_id):
     # Dummy implementation...
