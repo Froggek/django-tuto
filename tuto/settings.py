@@ -37,7 +37,7 @@ INSTALLED_APPS = [  # Applications activated in Django instance
     # ... when ready > python manage.py migrate
 
     'django.contrib.admin',  # Admin site
-    'django.contrib.auth',  # Authentication mechanism
+    'django.contrib.auth',  # Authentication mechanism (groups & users)
     'django.contrib.contenttypes',  # Framework for content types
     'django.contrib.sessions',  # Session framework
     'django.contrib.messages',  # Messaging framework
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tuto.urls'
+ROOT_URLCONF = 'tuto.urls'  # URLconfs 
 
 TEMPLATES = [
     {

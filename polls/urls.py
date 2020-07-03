@@ -7,5 +7,13 @@ urlpatterns = [
     # w/ an HttpRequest obj as argument [+ captured values captures from the route, as KW arguments]
     # [kwargs]: Arbitrary KW args passed to the view
     # [name]: Unambiguous name for the URL, can be used in templates e.g.
-    path('', views.index, name='index')
+
+    # /polls/
+    path('', views.index, name='index'),
+    # /polls/5/
+    path('<int:question_id>/', views.detail, name='detail'),
+    # /polls/5/results/
+    path('<int:question_id>/results/', views.results, name='results'),
+    # /polls/5/vote/
+    path('<int:question_id>/vote/', views.vote, name='vote'),
 ]
