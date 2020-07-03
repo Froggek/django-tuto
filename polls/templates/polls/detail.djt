@@ -6,7 +6,7 @@
     {% csrf_token %}  <!-- Whaou! -->
 
     {% for c in question.choice_set.all %}
-        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ c.id }}" />
         <label for="choice{{ forloop.counter }}">
             {{ c.choice_text }}    
         </label>
@@ -24,4 +24,3 @@
 </ul> 
  -->
 
- 
