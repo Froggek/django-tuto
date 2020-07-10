@@ -11,13 +11,25 @@ urlpatterns = [
     # [name]: Unambiguous name for the URL, can be used in templates e.g.
 
     # /polls/
-    path('', views.index, name='index'),
+    # Traditional way: 
+    # path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
+
     # /polls/5/
-    path('<int:question_id>/', views.detail, name='detail'),
+    # The traditional way
+    # path('<int:question_id>/', views.detail, name='detail'),
     # One can change the structure of the URL, without breaking the links (loosely-coupling)
-    # path('specifics/<int:question_id>/', views.detail, name='detail'),  
+    # path('specifics/<int:question_id>/', views.detail, name='detail'),
+    # Amending URLconf for generic view:
+    # The DetailView generic view expects the PK to be retrieved from the URL
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+
+
     # /polls/5/results/
-    path('<int:question_id>/results/', views.results, name='results'),
+    # path('<int:question_id>/results/', views.results, name='results'),
+    # Amending URLconf for generic view
+    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
+
     # /polls/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
 ]
